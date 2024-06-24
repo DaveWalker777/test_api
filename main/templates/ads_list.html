@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+</style>
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объявления</title>
+</head>
+<body>
+    <h1>Список объявлений</h1>
+    {% if user.is_authenticated %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Заголовок</th>
+                <th>Автор</th>
+                <th>Просмотры</th>
+                <th>Адрес</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ad in ads %}
+            <tr>
+                <td>{{ ad.id }}</td>
+                <td>{{ ad.title }}</td>
+                <td>{{ ad.author }}</td>
+                <td>{{ ad.views }}</td>
+                <td>{{ ad.address }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p  style="color:red">Для просмотра данных необходимо авторизоваться</p>
+    {% endif %}
+</body>
+{% endblock %}
+</html>
