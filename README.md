@@ -9,7 +9,13 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 ```
-3. Создать суперпользователя
+3. Создать суперпользователя 
+
+*В БД уже существует тестовый суперпользователь*
+
+*login - test*
+
+*password - test*
 ```
 python manage.py createsuperuser
 ```
@@ -31,6 +37,7 @@ python manage.py runserver
 
 Данные можно добавлять при помощи админ-панели
 
+В БД занесены последние 10 записей с сайта из задания
 # API
 
 API требует авторизации пользователя, иначе доступ не будет предоставлен
